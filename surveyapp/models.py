@@ -22,7 +22,7 @@ class Survey(models.Model):
 
 
 class User(AbstractUser):
-    points = models.CharField(max_length=200, null=True)
+    points = models.IntegerField(default=0)
 
 
 class Questions(models.Model):

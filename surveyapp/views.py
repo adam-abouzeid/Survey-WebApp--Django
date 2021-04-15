@@ -19,7 +19,7 @@ def index(request):
 def Surveys(request, topic):
     surveys = Survey.objects.filter(category=topic)
 
-    return render(request, "surveyapp/surveys.html", {"surveys": surveys})
+    return render(request, "surveyapp/surveys.html", {"surveys": surveys, "points": request.user.points})
 
 
 def signup(request):
@@ -69,6 +69,9 @@ def single_survey(request, single_survey_name):
         s.survey = survey
         s.user = request.user.username
         survey.people += 1
+        user = User.objects.get(username=request.user.username)
+        user.points += 1
+        user.save()
         survey.save()
         questions = Questions.objects.filter(survey=single_survey_name)
         length = len(questions)
