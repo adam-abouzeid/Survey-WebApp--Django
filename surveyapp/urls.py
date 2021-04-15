@@ -12,6 +12,7 @@ urlpatterns = [
     path("singlesurvey/<str:single_survey_name>", views.single_survey, name="singlesurvey"),
     path("addcat", views.addcat, name="addcat"),
     path("deletecat", views.deletecat, name="deletecat"),
-    path("addsurv", views.addsurv, name="addsurv")
+    path("addsurv", views.addsurv, name="addsurv"),
+    path("deletesurv", views.deletesurvey, name="deletesurv")
     # path("postsurvey", views.postsurvey, name="postsurvey") #/<str:survey_name>
 ]

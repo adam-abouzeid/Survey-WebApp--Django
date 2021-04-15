@@ -22,7 +22,8 @@
             <a href="{% url 'index' %}">Home</a>
 
          {% if user.is_authenticated %}
-        <a href="{% url 'deletecat' %}">Delete Category</a>
+            <a href="{% url 'deletecat' %}">Delete Category</a>
+        <a href="{% url 'deletesurv' %}">Delete Survey</a>
      <a href="{% url 'addsurv' %}">Add a New Survey</a>
      <a href="{% url 'addcat' %}">Add Category</a>
         <a href="{% url 'logout' %}">Log out</a>

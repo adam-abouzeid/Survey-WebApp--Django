@@ -175,3 +175,21 @@ def addsurv(request):
                           "category": categories,
 
                       })
+
+
+def deletesurvey(request):
+    if request.method == "POST":
+        survey = request.POST["survey"]
+        survey = survey[1:len(survey) - 1]
+        s = Survey.objects.get(id=survey)
+        s.delete()
+        return HttpResponseRedirect(reverse("index"))
+        # print(x)
+        # print(y)
+        # print(survey)
+    else:
+
+        s = Survey.objects.all()
+        return render(request, "surveyapp/deletesurvey.html", {
+            "surveys": s
+        })
