@@ -6,73 +6,59 @@
   <h4>{{people}} other respondants took this survey</h4>
     <h1>Congrats! you just gained  1 point!</h1>
 </div>
-<!--<div class="question-container">-->
-{% for a in answered %}
-      {% if a == "Strongly Agree" %}
-      <h4>You answered strongly agree on question {{forloop.counter}}</h4>
-      {% elif a == "Agree"%}
-      <h4>You answered  agree on question {{forloop.counter}}</h4>
-      {% elif a == "Neutral" %}
-      <h4>You answered neutral on question {{forloop.counter}}</h4>
-      {% elif a == "Disagree" %}
-      <h4>You answered  disagree on question {{forloop.counter}}</h4>
-      {% elif a == "Strongly Disagree" %}
-      <h4>You answered strongly disagree on question {{forloop.counter}}</h4>
-      {% endif %}
 
-{% endfor %}
-<!--       <div class="question">-->
-<!--    <div class="question-title">-->
-<!--      -->
-      <!-- {{q.question}} -->
-<!--    </div>-->
+<div class="question-container">
+  <div class="question">
+    <div class="question-title">
+<p>{{question}}</p>
+    </div>
+    <hr>
+    <div class="radio">
+      <div class="radio-button">
+        <label>Strongly Agree</label>
+<!--        <input type="radio" name="choice" value="Strongly Agree" id="a" disabled>-->
+          <div class="answers">{{stronglya}}</div>
+      </div>
+        <div class="radio-button">
+        <label>Agree</label>
+<!--        <input type="radio" name="choice" value="Agree" id="b" disabled>-->
+            {{agree}}
+      </div>
+        <div class="radio-button">
+        <label>Neutral</label>
+<!--        <input type="radio" name="choice" value="neutral" id="c" disabled>-->
+            <div class="answers">{{neutral}}</div>
+      </div>
+        <div class="radio-button">
+        <label>Disagree</label>
+<!--        <input type="radio" name="choice" value="disagree" id="d" disabled>-->
+            <div class="answers">{{disagree}}</div>
+      </div>
+        <div class="radio-button">
+        <label>Strongly Disagree</label>
+<!--        <input type="radio" name="choice" value="strongly disagree" id="e" disabled>-->
+            <div class="answers">{{stronglyd}}</div>
+      </div>
 
-<!--  </div>-->
 
 
-    {% for q in questioned %}
-
-<!--  <div class="question">-->
-<!--    <div class="question-title">-->
-<!--      <input class="title-question" type="text" value="{{q}}">-->
-<!--      &lt;!&ndash; {{q.question}} &ndash;&gt;-->
-<!--    </div>-->
-<!--    <hr>-->
-<!--    <div class="radio">-->
-
-<!--      <div class="radio-button">-->
-<!--        <label for="sa">Strongly Agree</label>-->
-<!--        <input type="radio" value="Strongly Agree" disabled="disabled" id="sa" required>-->
-<!--      </div>-->
-
-<!--      <div class="radio-button">-->
-<!--        <label for="a">Agree</label>-->
-<!--        <input type="radio" name="choice{{forloop.counter}}" value="Agree" disabled="disabled" id="a" required>-->
-<!--      </div>-->
-
-<!--      <div class="radio-button">-->
-<!--        <label for="n">Neutral</label>-->
-<!--        <input type="radio" name="choice{{forloop.counter}}" value="Neutral" disabled="disabled" id="n" required>-->
-<!--      </div>-->
-
-<!--      <div class="radio-button">-->
-<!--        <label for="d">Disagree</label>-->
-<!--        <input type="radio" name="choice{{forloop.counter}}" checked="checked" value="Disagree" disabled="disabled" id="d" required>-->
-<!--      </div>-->
-
-<!--      <div class="radio-button">-->
-<!--        <label for="sd">Strongly Disagree</label>-->
-<!--        <input type="radio" name="choice{{forloop.counter}}" value="Strongly Disagree" disabled="disabled" id="sd" required>-->
-<!--      </div>-->
-
-<!--    </div>-->
-<!--  </div>-->
-
-{% endfor %}
-
+    </div>
+  </div>
 
 
 </div>
+
+
+  <div class="submit-button">
+        <a href="{% url 'index' %}">
+      <input type="submit" value="Back to Home">
+        </a>
+
+
+  </div>
+
+
+
 
 
 {% endblock %}

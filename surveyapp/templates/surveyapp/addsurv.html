@@ -4,6 +4,8 @@
     {% csrf_token %}
 <div class="addsurvey-container">
 <input type="text" name="title" placeholder="Title">
+    <input type="text" name="subtitle" placeholder="sub title">
+
     <select name="category">
         {% for c in category %}
 <option value=”{{c.category_name}}” >{{c.category_name}}</option>
@@ -11,8 +13,8 @@
         {% endfor %}
 
 </select>
-    <div class="addsurv-questions">
-        <input type="text" value="Question 1">
+    <div class="addsurv-question">
+        <input type="text" name="question" placeholder="question">
     </div>
 </div>
     <input type="submit" value="Create Survey">
