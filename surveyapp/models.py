@@ -6,6 +6,7 @@ from django.contrib.auth.models import AbstractUser
 class Category(models.Model):
     category_name = models.CharField(max_length=200)
     icon = models.CharField(max_length=100, null=True)
+    users = models.CharField(max_length=500, default="")
 
     def __str__(self):
         return str(self.category_name)

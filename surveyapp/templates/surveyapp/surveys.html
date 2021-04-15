@@ -24,6 +24,8 @@
 
 <div>
   Users that participated in this category:
-  
+  {% for u in users %}
+  {{u}} <br>
+  {% endfor %}
 </div>
 {% endblock %}
