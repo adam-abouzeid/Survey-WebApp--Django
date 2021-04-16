@@ -80,8 +80,9 @@ def single_survey(request, single_survey_name):
         else:
             category.users += str(request.user.username) + ","
             category.save()
-
-        s.question = request.POST["question"]
+        survey = Survey.objects.get(id=single_survey_name)
+        question = survey.question
+        s.question = question
         s.answer = request.POST["choice"]
         if s.answer == "Strongly Agree":
             survey.stronglyagree += 1
@@ -107,8 +108,7 @@ def single_survey(request, single_survey_name):
         # submitted = SubmittedSurveys.objects.get(survey=single_survey_name)
         # print(submitted.answer)
 
-        survey = Survey.objects.get(id=single_survey_name)
-        question = survey.question
+       
         # print(answers)
         return render(request, "surveyapp/postsurvey.html", {
             "survey": survey,

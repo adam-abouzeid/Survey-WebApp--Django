@@ -9,51 +9,47 @@
   <form method="post" action="{% url 'singlesurvey' survey.id %}">
     {% csrf_token %}
 
-  <div class="question">
-    <div class="question-title">
-      <input class="title-question" name="question" value="{{question}}">
+    <div class="question">
+      <div class="question-title">
+        <p>{{question}}</p>
+      </div>
+      <hr>
+      <div class="radio">
 
+        <div class="radio-button">
+          <label for="sa">Strongly Agree</label>
+          <input type="radio" name="choice" value="Strongly Agree" id="sa" required>
+        </div>
+
+        <div class="radio-button">
+          <label for="a">Agree</label>
+          <input type="radio" name="choice" value="Agree" id="a" required>
+        </div>
+
+        <div class="radio-button">
+          <label for="n">Neutral</label>
+          <input type="radio" name="choice" value="Neutral" id="n" required>
+        </div>
+
+        <div class="radio-button">
+          <label for="d">Disagree</label>
+          <input type="radio" name="choice" value="Disagree" id="d" required>
+        </div>
+
+        <div class="radio-button">
+          <label for="sd">Strongly Disagree</label>
+          <input type="radio" name="choice" value="Strongly Disagree" id="sd" required>
+        </div>
+
+      </div>
     </div>
-    <hr>
-    <div class="radio">
 
-      <div class="radio-button">
-        <label for="sa">Strongly Agree</label>
-        <input type="radio" name="choice" value="Strongly Agree" id="sa" required>
-      </div>
 
-      <div class="radio-button">
-        <label for="a">Agree</label>
-        <input type="radio" name="choice" value="Agree" id="a" required>
-      </div>
-
-      <div class="radio-button">
-        <label for="n">Neutral</label>
-        <input type="radio" name="choice" value="Neutral" id="n" required>
-      </div>
-
-      <div class="radio-button">
-        <label for="d">Disagree</label>
-        <input type="radio" name="choice" value="Disagree" id="d" required>
-      </div>
-
-      <div class="radio-button">
-        <label for="sd">Strongly Disagree</label>
-        <input type="radio" name="choice" value="Strongly Disagree" id="sd" required>
-      </div>
-
+    <div class="submit-button">
+      <input type="submit" value="Submit poll">
     </div>
-  </div>
 
-
-  <div class="submit-button">
-
-      <input type="submit" value="Submit survey">
-
-
-  </div>
-
-</form>
+  </form>
 </div>
 
 
