@@ -74,6 +74,7 @@ def single_survey(request, single_survey_name):
         user = User.objects.get(username=request.user.username)
         user.points += 1
         user.save()
+        survey.save()
         category = Category.objects.get(category_name=survey.category)
         if request.user.username in category.users:
             pass
@@ -94,6 +95,8 @@ def single_survey(request, single_survey_name):
             survey.disagree += 1
         elif s.answer == "Strongly Disagree":
             survey.stronglydisagree += 1
+        s.save()
+        survey.save()
         # questions = Questions.objects.filter(survey=single_survey_name)
         # length = len(questions)
         # answers = []
@@ -103,17 +106,16 @@ def single_survey(request, single_survey_name):
         #     questions.append(request.POST[f"question{i + 1}"])
         # s.answers = str(answers)
         # s.questions = str(questions)
-        s.save()
-        survey.save()
+
         # submitted = SubmittedSurveys.objects.get(survey=single_survey_name)
         # print(submitted.answer)
 
-       
+
         # print(answers)
         return render(request, "surveyapp/postsurvey.html", {
             "survey": survey,
             "question": question,
-            "people": survey.people ,
+            "people": survey.people-1 ,
             "answer": s.answer,
             "agree": survey.agree,
             "stronglya": survey.stronglyagree,
